@@ -1,1 +1,9 @@
 /* BASIC STYLES HERE */
+.hide{
+  display: none;
+}
+
+.myQuote:hover + .hide{
+  display: block;
+  color: red; 
+}
