@@ -1,7 +1,9 @@
+import { ProxyState } from "../AppState.js"
+
 export class ToDo {
   constructor(data) {
     this.id = data.id
-    this.completed = data.completed.default
+    this.completed = data.completed
     this.description = data.description
     this.user = data.user
   }
@@ -9,10 +11,18 @@ export class ToDo {
   get Template() {
     return `
     <div class="mb-3 form-check" >
-      <input type="checkbox" class="form-check-input" id="exampleCheck1" onchange="app.todosController.completeToDo('${this.id}')" ${this.completed ? 'completed' : ''}>
+      <input type="checkbox" class="form-check-input" id="exampleCheck1" onchange="app.todosController.completeToDo('${this.id}')" 
+      ${this.completed ? 'checked' : ''}>
       <label class="form-check-label" for="exampleCheck1">${this.description}</label>
       <i class="mdi mdi-delete selectable" title="delete todo" onclick="app.todosController.deleteToDo('${this.id}')"></i>
     </div>
     `
+  }
+
+  get Finished() {
+    const finishedTotal = ProxyState.toDo.length
+    const completed = ProxyState.toDo.filter(td => td.completed)
+    const c = completed.length
+    return `${c}/${finishedTotal}`
   }
 }

@@ -17,10 +17,17 @@ function _drawToDo() {
   document.getElementById("todos").innerHTML = template
   // document.getElementById("tasks").innerHTML = ProxyState.toDo.Template
 }
+
+function _drawCompleted() {
+  let template = ""
+  ProxyState.toDo.forEach(t => template = t.Finished)
+  document.getElementById("completed").innerText = template
+}
 export class ToDosController {
   constructor() {
     _getToDo()
     ProxyState.on("toDo", _drawToDo)
+    ProxyState.on("toDo", _drawCompleted)
 
   }
 
