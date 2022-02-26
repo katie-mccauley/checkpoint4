@@ -7,3 +7,12 @@
   display: block;
   color: red; 
 }
+
+body{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-position: center;
+  background-size: cover;
+  backdrop-filter: blur(2px);
+}

@@ -21,7 +21,7 @@ function _getTime() {
 
 function _drawImage() {
   let image = ProxyState.images
-  document.body.style.backgroundImage = `url(${image.imgUrl})`
+  document.body.style.backgroundImage = `url(${image.largeImgUrl})`
 }
 export class ImagesController {
   constructor() {

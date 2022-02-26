@@ -8,7 +8,11 @@ export class ToDo {
 
   get Template() {
     return `
-    <input type="checkbox" class="btn-check" id="btncheck1">
+    <div class="mb-3 form-check" >
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">${this.description}</label>
+      <i class="mdi mdi-delete selectable" title="delete todo" onclick="app.todosController.deleteToDo('${this.id}')"></i>
+    </div>
     `
   }
 }

@@ -1,5 +1,6 @@
 import { ProxyState } from "../AppState.js";
 import { toDosService } from "../Services/ToDosService.js";
+import { Pop } from "../Utils/Pop.js";
 
 
 async function _getToDo() {
@@ -13,7 +14,7 @@ async function _getToDo() {
 function _drawToDo() {
   let template = ""
   ProxyState.toDo.forEach(t => template += t.Template)
-  document.getElementById("tasks").innerHTML = template
+  document.getElementById("todos").innerHTML = template
   // document.getElementById("tasks").innerHTML = ProxyState.toDo.Template
 }
 export class ToDosController {
@@ -39,4 +40,17 @@ export class ToDosController {
     }
 
   }
+
+  async deleteToDo(id) {
+    try {
+      if (await Pop.confirm()) {
+        await toDosService.deleteToDo(id)
+      }
+    } catch (error) {
+      console.error(error)
+
+    }
+  }
+
+
 }

@@ -3,6 +3,10 @@ import { ToDo } from "../Models/ToDo.js";
 import { todoApi } from "./AxiosService.js";
 
 class ToDosService {
+  async deleteToDo(id) {
+    const res = await todoApi.delete(id)
+    ProxyState.toDo = ProxyState.toDo.filter(d => d.id !== id)
+  }
   async addToDo(rawData) {
     const res = await todoApi.post('', rawData)
     console.log("raw data", res.data);
@@ -14,7 +18,7 @@ class ToDosService {
     ProxyState.toDo = res.data.map(d => new ToDo(d))
   }
   constructor() {
-    console.log("thi si the to dos service");
+
   }
 }
 
