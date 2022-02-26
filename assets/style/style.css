@@ -14,5 +14,5 @@ body{
   flex-direction: column;
   background-position: center;
   background-size: cover;
-  backdrop-filter: blur(2px);
+  /* backdrop-filter: blur(2px); */
 }

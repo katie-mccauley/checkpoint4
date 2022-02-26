@@ -3,6 +3,20 @@ import { ToDo } from "../Models/ToDo.js";
 import { todoApi } from "./AxiosService.js";
 
 class ToDosService {
+  async completeToDo(id) {
+
+    let complete = ProxyState.toDo.find(td => td.id === id)
+    complete.completed = !complete.completed
+    const res = await todoApi.put(id, complete)
+    console.log("complete to do", res.data);
+    complete.completed = complete.completed
+    // ProxyState.toDo = complete.map(td => {
+    //   if (td.id == id) {
+    //     td.completed = !td.completed
+    //   }
+    //   return td
+    // })
+  }
   async deleteToDo(id) {
     const res = await todoApi.delete(id)
     ProxyState.toDo = ProxyState.toDo.filter(d => d.id !== id)

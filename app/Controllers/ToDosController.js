@@ -28,12 +28,12 @@ export class ToDosController {
     try {
       window.event.preventDefault()
       const form = window.event.target
-
       const rawData = {
         // @ts-ignore
         description: form.description.value
       }
-
+      // @ts-ignore
+      form.reset()
       await toDosService.addToDo(rawData)
     } catch (error) {
       console.error(error)
@@ -49,6 +49,14 @@ export class ToDosController {
     } catch (error) {
       console.error(error)
 
+    }
+  }
+
+  async completeToDo(id) {
+    try {
+      await toDosService.completeToDo(id)
+    } catch (error) {
+      console.error(error)
     }
   }
 
