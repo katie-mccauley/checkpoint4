@@ -9,9 +9,9 @@ class ToDosService {
     complete.completed = !complete.completed
     const res = await todoApi.put(id, complete)
     console.log("complete to do", res.data);
-    complete.completed = complete.completed
-    // ProxyState.toDo = complete.map(td => {
-    //   if (td.id == id) {
+    this._getToDo()
+    // ProxyState.toDo = ProxyState.toDo.map(td => {
+    //   if (td.id === id) {
     //     td.completed = !td.completed
     //   }
     //   return td

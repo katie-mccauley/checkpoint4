@@ -27,7 +27,7 @@ function _getTime() {
 
   const date = new Date()
   const hour = twelveHour(date.getHours())
-  const min = date.getMinutes()
+  const min = ("0" + date.getMinutes()).slice(-2)
 
 
 

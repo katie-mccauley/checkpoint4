@@ -41,29 +41,25 @@
       </a>
     </nav>
   </header> -->
-  <main class="container-fluid">
-    <div>
+  <main>
+
+
+    <div id="weather" class="col-3 text-light">
+
 
     </div>
 
-    <div class="row">
-      <div id="weather" class="col-3 text-light">
+
+    <h1 id="time"></h1>
+
+    <div class="" id="footer">
+      <div class="text-center bg-white rounded shadow" id="weather-creds">
 
       </div>
-    </div>
-    <div class="row">
-      <div class="col-12 text-light">
-        <h1 class="text-center" id="time"></h1>
-      </div>
-    </div>
-    <div class="row justify-content-around align-content-end">
-      <div class="col-2 text-center bg-white rounded shadow" id="weather-creds">
+      <div class="text-light text-center" id="quote">
 
       </div>
-      <div class="col-4 text-light text-center" id="quote">
-
-      </div>
-      <div class="col-3 bg-white shadow rounded">
+      <div class="bg-white shadow rounded">
         <div id="completed">
 
         </div>
@@ -71,7 +67,7 @@
 
         </div>
         <form class="rounded" onsubmit="app.todosController.addToDo()">
-          <div class="mb-3">
+          <div class="">
             <label for="todo" class="form-label">TO-DO</label>
             <input type="text" name="description" id="description" class="form-control" id="exampleInputEmail1"
               required>

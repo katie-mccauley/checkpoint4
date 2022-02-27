@@ -12,7 +12,13 @@ async function _getWeather() {
 
 function _drawWeather() {
   let weather = ProxyState.weather
-  document.getElementById("weather").innerHTML = weather.Template
+  let div = document.getElementById("weather")
+  div.innerHTML = weather.Template
+  div.onclick = _changeType
+}
+function _changeType() {
+  ProxyState.weather.isFarenheit = !ProxyState.weather.isFarenheit
+  _drawWeather()
 }
 export class WeathersController {
   constructor() {
@@ -20,4 +26,6 @@ export class WeathersController {
     _getWeather()
     ProxyState.on("weather", _drawWeather)
   }
+
+
 }
