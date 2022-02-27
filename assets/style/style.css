@@ -11,8 +11,18 @@
 body{
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  
   background-position: center;
   background-size: cover;
   /* backdrop-filter: blur(2px); */
+}
+
+.digital-clock{
+  position:absolute;
+  width: 400px;
+  height: 500px;
+  color: #ffffff;
+  border: 2px solid #999;
+  border-radius: 5px;
+  text-align: center;
 }

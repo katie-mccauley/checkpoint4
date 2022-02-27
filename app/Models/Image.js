@@ -8,6 +8,12 @@ export class Image {
     this.query = data.query
   }
 
-
+  get Template() {
+    return `
+    <h4>${this.tags}</h4>
+    <h4>${this.author}</h4>
+    <h4>${this.query}</h4>
+    `
+  }
 
 }

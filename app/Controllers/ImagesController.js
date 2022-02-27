@@ -9,6 +9,10 @@ async function _getImage() {
   }
 }
 
+function _drawImageInfo() {
+  document.getElementById("weather-creds").innerHTML = ProxyState.images.Template
+}
+
 function twelveHour(x) {
   if (x > 12) {
     return x = x - 12
@@ -22,11 +26,12 @@ function twelveHour(x) {
 function _getTime() {
 
   const date = new Date()
-  const [hour, minutes] = [twelveHour(date.getHours()), date.getMinutes()]
+  const hour = twelveHour(date.getHours())
+  const min = date.getMinutes()
 
 
 
-  document.getElementById("time").innerText = [hour, minutes].toString()
+  document.getElementById("time").innerHTML = `${hour}:${min}`
 
 }
 
@@ -41,7 +46,7 @@ export class ImagesController {
     _getImage()
     let timeInterval = setInterval(_getTime, 1000)
     ProxyState.on("images", _drawImage)
-
+    ProxyState.on("images", _drawImageInfo)
 
   }
 }
