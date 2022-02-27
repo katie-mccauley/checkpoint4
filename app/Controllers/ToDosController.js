@@ -24,7 +24,7 @@ function _drawCompleted() {
 
   })
   document.getElementById("todos").innerHTML = template
-  document.getElementById("completed").innerHTML = `<h2> ${completeCount}/${totalComplete} </h2>`
+  document.getElementById("completed").innerHTML = `<h4>To-Do's completed ${completeCount}/${totalComplete} </h4>`
 }
 export class ToDosController {
   constructor() {

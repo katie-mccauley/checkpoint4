@@ -10,6 +10,7 @@ export class Image {
 
   get Template() {
     return `
+    <h3>Credits of image</h3>
     <h4>${this.tags}</h4>
     <h4>${this.author}</h4>
     <h4>${this.query}</h4>
