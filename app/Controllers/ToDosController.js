@@ -11,24 +11,26 @@ async function _getToDo() {
   }
 }
 
-function _drawToDo() {
-  let template = ""
-  ProxyState.toDo.forEach(t => template += t.Template)
-  document.getElementById("todos").innerHTML = template
-  // document.getElementById("tasks").innerHTML = ProxyState.toDo.Template
-}
 
 function _drawCompleted() {
+  let completeCount = 0
+  let totalComplete = ProxyState.toDo.length
   let template = ""
-  ProxyState.toDo.forEach(t => template = t.Finished)
-  document.getElementById("completed").innerText = template
+  ProxyState.toDo.forEach(t => {
+    template += t.Template
+    if (t.completed) {
+      completeCount++
+    }
+
+  })
+  document.getElementById("todos").innerHTML = template
+  document.getElementById("completed").innerHTML = `<h2> ${completeCount}/${totalComplete} </h2>`
 }
 export class ToDosController {
   constructor() {
-    _getToDo()
-    ProxyState.on("toDo", _drawToDo)
-    ProxyState.on("toDo", _drawCompleted)
 
+    ProxyState.on('toDo', _drawCompleted)
+    _getToDo()
   }
 
   async addToDo() {

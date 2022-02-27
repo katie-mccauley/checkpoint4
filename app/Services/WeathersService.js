@@ -7,7 +7,7 @@ class WeathersService {
     let weather = ProxyState.weather
     const res = await weatherApi.get()
     console.log("this is weather data", res.data);
-    res.data.main.temp = (((res.data.main.temp - 273) * (9 / 5)) + 32).toFixed(2)
+    res.data.main.temp = (((res.data.main.temp - 273) * (9 / 5)) + 32).toFixed(0)
     ProxyState.weather = new Weather(res.data)
   }
   constructor() {

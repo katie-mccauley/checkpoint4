@@ -12,9 +12,10 @@ async function _getImage() {
 function _getTime() {
 
   const date = new Date()
-  const [hour, minutes, seconds] = [date.getHours(), date.getMinutes(), date.getSeconds()]
+  const [hour, minutes] = [date.getHours(), date.getMinutes()]
 
-  document.getElementById("time").innerText = [hour, minutes, seconds].toString()
+  // @ts-ignore
+  document.getElementById("time").innerText = [hour > 12 ? hour - 12 : hour, minutes].toString()
 
 }
 
