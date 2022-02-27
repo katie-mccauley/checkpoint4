@@ -9,13 +9,24 @@ async function _getImage() {
   }
 }
 
+function twelveHour(x) {
+  if (x > 12) {
+    return x = x - 12
+  } else if (x == 0) {
+    return x = 12
+  } else {
+    return x
+  }
+}
+
 function _getTime() {
 
   const date = new Date()
-  const [hour, minutes] = [date.getHours(), date.getMinutes()]
+  const [hour, minutes] = [twelveHour(date.getHours()), date.getMinutes()]
 
-  // @ts-ignore
-  document.getElementById("time").innerText = [hour > 12 ? hour - 12 : hour, minutes].toString()
+
+
+  document.getElementById("time").innerText = [hour, minutes].toString()
 
 }
 
