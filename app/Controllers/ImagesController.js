@@ -25,11 +25,9 @@ function twelveHour(x) {
 
 
 function _getTime() {
-
   const date = new Date()
   const hour = twelveHour(date.getHours())
   const min = ("0" + date.getMinutes()).slice(-2)
-
 
 
   document.getElementById("time").innerHTML = `${hour}:${min}`
