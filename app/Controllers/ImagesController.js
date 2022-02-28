@@ -23,6 +23,7 @@ function twelveHour(x) {
   }
 }
 
+
 function _getTime() {
 
   const date = new Date()
